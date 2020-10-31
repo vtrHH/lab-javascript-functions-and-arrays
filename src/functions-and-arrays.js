@@ -19,11 +19,14 @@ const words = [
   'crackpot'
 ];
 
-function findLongestWord() {
-  let longestWord = "";
-  for (let i = 0; i < words.length; i++) {
-    if (longestWord.length < words[i].length) {
-      longestWord = words[i];
+function findLongestWord(list) {
+  if (list.length === 0) {
+    return null;
+  }
+  let longestWord = '';
+  for (let i = 0; i < list.length; i++) {
+    if (longestWord.length < list[i].length) {
+      longestWord = list[i];
     }
   }
   return longestWord;
@@ -32,24 +35,31 @@ function findLongestWord() {
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-let sum = 0;
 
-function sumNumbers() {
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
+function sumNumbers(list) {
+  if (list.length === 0) {
+    return 0;
   }
-return(sum);
-}
-
+  let accumulator = 0;
+  for (let item of list) {
+    accumulator += item;
+  }
+  return accumulator;
 }
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-let average = 0;
 
-function averageNumbers () {
-  
+function averageNumbers(list) {
+  if (list.length === 0) {
+    return null;
+  }
+  let average = 0;
+  const sumOfAllNumbers = sumNumbers(list);
+  if ((average = sumOfAllNumbers / list.length)) {
+    return average;
+  }
 }
 
 // Level 2: Array of strings
@@ -65,6 +75,12 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(list) {
+  if (!list.length) {
+    return null;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
