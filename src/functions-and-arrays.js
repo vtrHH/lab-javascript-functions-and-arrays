@@ -54,10 +54,9 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(list) {
   if (list.length === 0) {
     return null;
-  }
-  let average = 0;
-  const sumOfAllNumbers = sumNumbers(list);
-  if ((average = sumOfAllNumbers / list.length)) {
+  } else {
+    const sumOfAllNumbers = sumNumbers(list);
+    const average = sumOfAllNumbers / list.length;
     return average;
   }
 }
@@ -76,9 +75,16 @@ const wordsArr = [
   'palace'
 ];
 
-function averageWordLength(list) {
-  if (!list.length) {
+function averageWordLength(listOfWords) {
+  if (listOfWords.length === 0) {
     return null;
+  }
+  let str = '';
+  let signCounter = 0;
+  for (let i = 0; i < listOfWords.length; i++) {
+    signCounter += str.length;
+    let averageLengthOfWords = signCounter / listOfWords.length;
+    return averageLengthOfWords;
   }
 }
 
@@ -97,6 +103,19 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsArray) {
+  if (wordsArray.length === 0) {
+    return null;
+  }
+  const uniquifiedWords = [];
+  for (let item of wordsArray) {
+    if (uniquifiedWords.indexOf(item) === -1) {
+      uniquifiedWords.push(item);
+    }
+  }
+  return uniquifiedWords;
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -108,6 +127,17 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsArray, wordToFind) {
+  if (wordsArray.length === 0) {
+    return null;
+  }
+  for (let item of wordsArray)
+    if (item === wordToFind) {
+      return true;
+    }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -123,6 +153,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsArray, wordToCount) {
+  if (wordsArray.length === 0) {
+    return 0;
+  }
+  let Counter = 0;
+  for (let item of wordsArray) {
+    if (item === wordToCount) {
+      Counter++;
+    }
+  }
+  return Counter;
+}
 
 // Iteration #8: Bonus
 
